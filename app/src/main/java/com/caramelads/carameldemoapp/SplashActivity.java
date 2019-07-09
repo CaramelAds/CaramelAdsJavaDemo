@@ -1,16 +1,94 @@
 package com.caramelads.carameldemoapp;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.os.Handler;
+import android.util.Log;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+
+import com.caramelads.carameldemoapp.caramel.CaramelIntegration;
+import com.caramelads.sdk.CaramelAdListener;
+import com.caramelads.sdk.ConsentDialog;
 
 public class SplashActivity extends AppCompatActivity {
+
+    private Handler caramelHandler = new Handler();
+    private Context caramelContext = this;
+
+    private static final int SDK_READY_TIME = 1_000;
+    private static final int ADS_POST_TIME = 10_000;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        startActivity(new Intent(this, TestActivity.class));
-        finish();
+        setContentView(R.layout.splash_act);
+        setupCaramel();
     }
+
+    private void setupCaramel(){
+        com.caramelads.sdk.CaramelAds.initialize(caramelContext);
+        com.caramelads.sdk.CaramelAds.setAdListener(new CaramelAdListener() {
+            @Override
+            public void sdkReady() {
+                ConsentDialog consentDialog = new ConsentDialog.Builder().withContext(caramelContext).ifNeeded().build();
+                consentDialog.show();
+                caramelHandler.postDelayed(caramelRunnable, SDK_READY_TIME);
+                Log.d("###", "SDK is ready");
+            }
+
+            @Override
+            public void sdkFailed() {
+                caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
+                Log.d("###", "SDK is failed");
+                startActivity(new Intent(caramelContext, TestActivity.class));
+                finish();
+            }
+
+            @Override
+            public void adLoaded() {
+                caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
+                Log.d("###", "SDK is loaded");
+                startActivity(new Intent(caramelContext, TestActivity.class));
+                CaramelIntegration.showAds();
+                finish();
+            }
+
+            @Override
+            public void adOpened() {
+                Log.d("###", "SDK is opened");
+
+            }
+
+            @Override
+            public void adClicked() {
+                Log.d("###", "SDK is clicked");
+            }
+
+            @Override
+            public void adClosed() {
+                caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
+                Log.d("###", "SDK is closed");
+            }
+
+            @Override
+            public void adFailed() {
+                caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
+                Log.d("###", "Ad is failed");
+                startActivity(new Intent(caramelContext, TestActivity.class));
+                finish();
+            }
+        });
+    }
+
+    private Runnable caramelRunnable = new Runnable() {
+        @Override
+        public void run() {
+            com.caramelads.sdk.CaramelAds.cache((Activity) caramelContext);
+        }
+    };
 }

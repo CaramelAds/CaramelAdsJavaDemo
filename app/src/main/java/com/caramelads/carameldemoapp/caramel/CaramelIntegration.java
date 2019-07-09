@@ -6,88 +6,78 @@ import android.os.Handler;
 import android.util.Log;
 
 import com.caramelads.sdk.CaramelAdListener;
-import com.caramelads.sdk.CaramelAds;
 import com.caramelads.sdk.ConsentDialog;
 
-import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
-import br.com.simplepass.loading_button_lib.interfaces.OnAnimationEndListener;
-
-/**
- * Created by Dmitriy on 02.03.2018.
- */
 
 public class CaramelIntegration {
     private Context caramelContext;
-    private final CircularProgressButton circularProgressButton;
+    private Handler caramelHandler = new Handler();
 
-    public CaramelIntegration(Context context, CircularProgressButton circularProgressButton){
-        this.caramelContext = context;
-        this.circularProgressButton = circularProgressButton;
+    private static final int SDK_READY_TIME = 1_000;
+    private static final int ADS_POST_TIME = 10_000;
+    private static boolean adLoaded = false;
+    private static boolean adFailed = false;
+
+    public CaramelIntegration(Context context){
+        caramelContext = context;
         setupCaramel();
     }
 
     private void setupCaramel(){
-        CaramelAds.initialize(caramelContext);
-        CaramelAds.setAdListener(new CaramelAdListener() {
+        com.caramelads.sdk.CaramelAds.initialize(caramelContext);
+        com.caramelads.sdk.CaramelAds.setAdListener(new CaramelAdListener() {
             @Override
             public void sdkReady() {
                 ConsentDialog consentDialog = new ConsentDialog.Builder().withContext(caramelContext).ifNeeded().build();
                 consentDialog.show();
+                caramelHandler.postDelayed(caramelRunnable, SDK_READY_TIME);
                 Log.d("###", "SDK is ready");
             }
 
             @Override
             public void sdkFailed() {
-                buttonFlex("SDK is failed");
+                caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
             }
 
             @Override
             public void adLoaded() {
-                buttonFlex("Ads is loaded, click me");
-                Log.d("###", "Ads is loaded");
+                caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
+                Log.d("###", "SDK is loaded");
             }
 
             @Override
             public void adOpened() {
-                Log.d("###", "Ads is opened");
+                Log.d("###", "SDK is opened");
             }
 
             @Override
             public void adClicked() {
-                Log.d("###", "Ads is clicked");
+                Log.d("###", "SDK is clicked");
             }
 
             @Override
             public void adClosed() {
-                buttonFlex("Ads is closed");
-                Log.d("###", "Ads is closed");
+                caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
+                Log.d("###", "SDK is closed");
             }
 
             @Override
             public void adFailed() {
-                buttonFlex("Ads is failed, retry");
-                Log.d("###", "Ads is failed");
+                caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
+                Log.d("###", "SDK is failed");
             }
         });
     }
 
-    private void buttonFlex(final String message){
-        circularProgressButton.revertAnimation(new OnAnimationEndListener() {
-            @Override
-            public void onAnimationEnd() {
-                circularProgressButton.setText(message);
-            }
-        });
+    private Runnable caramelRunnable = new Runnable() {
+        @Override
+        public void run() {
+            com.caramelads.sdk.CaramelAds.cache((Activity) caramelContext);
+        }
+    };
 
-    }
-
-    public boolean cache(){
-        CaramelAds.cache((Activity) caramelContext);
-        return CaramelAds.isLoaded();
-    }
-
-    public void showAds(){
-        if(CaramelAds.isLoaded())
-            CaramelAds.show();
+    static public void showAds(){
+        if(com.caramelads.sdk.CaramelAds.isLoaded())
+            com.caramelads.sdk.CaramelAds.show();
     }
 }

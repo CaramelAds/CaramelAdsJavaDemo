@@ -1,42 +1,31 @@
 package com.caramelads.carameldemoapp;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 
 import com.caramelads.carameldemoapp.caramel.CaramelIntegration;
 
-import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 
 public class TestActivity extends AppCompatActivity {
-    private  CaramelIntegration caramelIntegration;
-    private  CircularProgressButton buttonShowAds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initialize();
-        initializeAds();
-    }
-
-    private void initialize() {
-        setContentView(R.layout.activity_test);
-        buttonShowAds = findViewById(R.id.adsButton);
-        buttonShowAds.setText("CACHE");
-        caramelIntegration = new CaramelIntegration(this, buttonShowAds);
-    }
-
-    private void initializeAds() {
-        buttonShowAds.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.act_test);
+//        CaramelIntegration.showAds();
+        CaramelIntegration caramelIntegration = new CaramelIntegration(this);
+        Button button = findViewById(R.id.btn_start_next_act);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                buttonShowAds.startAnimation();
-                buttonShowAds.clearComposingText();
-                if (caramelIntegration.cache()){
-                    buttonShowAds.revertAnimation();
-                    caramelIntegration.showAds();
-                }
+                startActivity(new Intent(TestActivity.this, AnotherActivity.class));
+                CaramelIntegration.showAds();
             }
         });
     }
+
+
 }
