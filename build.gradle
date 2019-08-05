@@ -7,7 +7,7 @@ buildscript {
         maven {url "https://maven.caramelads.com/repository/maven-releases"}
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.1'
+        classpath 'com.android.tools.build:gradle:3.4.2'
     }
 }
 

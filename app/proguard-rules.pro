@@ -21,27 +21,21 @@
 #-renamesourcefileattribute SourceFile
 
 # ./gradlew :partner:assembleRelease
+# ./gradlew :partner:assembleRelease
 
 -ignorewarnings
 
 -dontshrink
 -dontoptimize
 -dontpreverify
-#-dontobfuscate
 
+-keepattributes *Annotation*
 
-#-optimizations !class/merging/*
-
-# works with #-dontoptimize
-#-assumenosideeffects class android.util.Log { *; }
-
--keepattributes Annotation
-
--keep class com.google.* { ; }
--keep class com.smaato.* { ; }
--keep class com.mopub.* { ; }
--keep class com.yandex.mobile.ads.* { ; }
--keep class com.yandex.metrica.* { ; }
+-keep class com.google.** {*;}
+-keep class com.smaato.** {*;}
+-keep class com.mopub.** {*;}
+-keep class com.yandex.mobile.ads.** { *; }
+-keep class com.yandex.metrica.** { *; }
 
 -dontwarn com.google.**
 -dontwarn com.smaato.**
@@ -49,28 +43,30 @@
 -dontwarn com.yandex.mobile.ads.**
 -dontwarn com.yandex.metrica.**
 
--keepattributes InnerClasses
 
--keep class com.caramelads.external.* { ; }
--keep interface com.caramelads.external.* { ; }
+-keepattributes *InnerClasses*
+
+-keep class com.caramelads.external.** { *; }
+-keep interface com.caramelads.external.** { *; }
 
 -keep class com.caramelads.internal.ControllerImpl**
 -keep class com.caramelads.internal.FactoryImpl**
 
--keep class com.caramelads.sdk.* { ; }
--keep interface com.caramelads.sdk.* { ; }
+-keep class com.caramelads.sdk.** { *; }
+-keep interface com.caramelads.sdk.** { *; }
 
--keep class com.caramelads.model.* { ; }
--keep interface com.caramelads.model.* { ; }
+-keep class com.caramelads.model.** { *; }
+-keep interface com.caramelads.model.** { *; }
 
--keep class com.caramelads.networking.* { ; }
--keep interface com.caramelads.networking.* { ; }
+-keep class com.caramelads.networking.** { *; }
+-keep interface com.caramelads.networking.** { *; }
 
--keep class com.caramelads.external.* { ; }
--keep interface com.caramelads.external.* { ; }
+-keep class com.caramelads.external.** { *; }
+-keep interface com.caramelads.external.** { *; }
 
--keep class com.caramelads.logs.* { ; }
--keep interface com.caramelads.logs.* { ; }
+-keep class com.caramelads.logs.** { *; }
+-keep interface com.caramelads.logs.** { *; }
+
 
 # okio
 
@@ -79,16 +75,16 @@
 -dontwarn retrofit2.Platform$Java8
 
 # Retrofit
--keep class com.google.gson.* { ; }
--keep public class com.google.gson.* {public private protected ;}
--keep class com.google.inject.* { ; }
--keep class org.apache.http.* { ; }
--keep class org.apache.james.mime4j.* { ; }
--keep class javax.inject.* { ; }
--keep class javax.xml.stream.* { ; }
--keep class retrofit.* { ; }
--keep class com.google.appengine.* { ; }
--keepattributes Annotation
+-keep class com.google.gson.** { *; }
+-keep public class com.google.gson.** {public private protected *;}
+-keep class com.google.inject.** { *; }
+-keep class org.apache.http.** { *; }
+-keep class org.apache.james.mime4j.** { *; }
+-keep class javax.inject.** { *; }
+-keep class javax.xml.stream.** { *; }
+-keep class retrofit.** { *; }
+-keep class com.google.appengine.** { *; }
+-keepattributes *Annotation*
 -keepattributes Signature
 -dontwarn com.squareup.okhttp.*
 -dontwarn rx.**
@@ -99,7 +95,7 @@
 
 -dontwarn retrofit2.**
 -dontwarn org.codehaus.mojo.**
--keep class retrofit2.* { ; }
+-keep class retrofit2.** { *; }
 -keepattributes Exceptions
 -keepattributes RuntimeVisibleAnnotations
 -keepattributes RuntimeInvisibleAnnotations
@@ -132,13 +128,13 @@
 -keep class com.example.asheq.zanis_postmans.SendReportsActivity
 -keep class com.example.asheq.track.TrackLocationService
 -keep class com.example.asheq.track.TrackLocationApplication
--keep class com.example.asheq.models.* { ; }
+-keep class com.example.asheq.models.** { *; }
 
 # Hide warnings about references to newer platforms in the library
 -dontwarn android.support.v7.**
 # don't process support library
--keep class android.support.v7.* { ; }
--keep interface android.support.v7.* { ; }
+-keep class android.support.v7.** { *; }
+-keep interface android.support.v7.** { *; }
 
 -keep public class * extends android.app.Activity
 -keep public class * extends android.app.Application
@@ -147,10 +143,10 @@
 -keep public class * extends android.content.BroadcastReceiver
 -keep public class * extends android.content.ContentProvider
 # To support Enum type of class members
--keepclassmembers enum  { ; }
+-keepclassmembers enum * { *; }
 
--keep class com.activeandroid.* { ; }
--keep class com.activeandroid.**.* { ; }
+-keep class com.activeandroid.** { *; }
+-keep class com.activeandroid.**.** { *; }
 -keep class * extends com.activeandroid.Model
 -keep class * extends com.activeandroid.serializer.TypeSerializer
 
@@ -164,25 +160,34 @@
     <init>(java.lang.Throwable);
 }
 
--dontwarn com.aiming.mdt.**.*
--dontwarn com.adt.**.*
--dontwarn com.mopub.**.*
--dontoptimize
--dontskipnonpubliclibraryclasses
--keepattributes Annotation
+ -dontwarn com.aiming.mdt.**.*
+ -dontwarn com.mopub.**.*
+ -dontoptimize
+ -dontskipnonpubliclibraryclasses
  #adt
--keep class com.admuing.* { ; }
--keep class com.aiming.mdt.* { ; }
--keep class com.adt.* { ; }
--keep class com.mopub.* { ; }
-#R
--keepclassmembers class *.R$ {
-    public static <fields>;
+ -keep class com.aiming.mdt.**{ *; }
+ -keep class com.mopub.**{ *; }
+ #R
+ -keepclassmembers class **.R$* {
+     public static <fields>;
+ }
+ -keepattributes *Annotation*,InnerClasses
+ -keepnames class * implements android.os.Parcelable {
+     public static final ** CREATOR;
 }
+
+#unity ads
+-keepattributes SourceFile,LineNumberTable
+-keepattributes JavascriptInterface
+-keep class android.webkit.JavascriptInterface {*;}
+-keep class com.unity3d.**{*;}
+-keep class com.unity3d.services.** {*;}
+-dontwarn com.google.ar.core.**
+
 
 #inmobi
 -keepattributes SourceFile,LineNumberTable
--keep class com.inmobi.* { ; }
+-keep class com.inmobi.** { *; }
 -dontwarn com.inmobi.**
 -keep public class com.google.android.gms.**
 -dontwarn com.google.android.gms.**
@@ -190,13 +195,11 @@
 -keep class com.google.android.gms.ads.identifier.AdvertisingIdClient{public *;}
 -keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info{public *;}
 #skip the Picasso library classes
--keep class com.squareup.picasso.* { ; }
+-keep class com.squareup.picasso.** {*;}
 -dontwarn com.squareup.picasso.**
 -dontwarn com.squareup.okhttp.**
 #skip Moat classes
--keep class com.moat.* { ; }
+-keep class com.moat.** {*;}
 -dontwarn com.moat.**
 #skip AVID classes
--keep class com.integralads.avid.library.* { ; }
-
-
+-keep class com.integralads.avid.library.** {*;}
