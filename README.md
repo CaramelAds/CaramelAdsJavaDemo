@@ -1,4 +1,4 @@
-Version 9.4.1
+Version 9.5.0
 
 ## ENG ( RUS version below )
 
@@ -12,7 +12,7 @@ Version 9.4.1
 
 2. Add dependency in build.gradle:
 
-          implementation ('com.caramelads:sdk:9.4.1'){
+          implementation ('com.caramelads:sdk:9.5.0'){
               exclude module: 'libAvid-mopub' // To exclude AVID
               exclude module: 'moat-mobile-app-kit' // To exclude Moat
               transitive = true
@@ -233,7 +233,7 @@ Version 9.4.1
 
 2.	Добавьте зависимость в build.gradle:
 
-                implementation ('com.caramelads:sdk:9.4.1'){
+                implementation ('com.caramelads:sdk:9.5.0'){
                       exclude module: 'libAvid-mopub' // To exclude AVID
                       exclude module: 'moat-mobile-app-kit' // To exclude Moat
                       transitive = true
