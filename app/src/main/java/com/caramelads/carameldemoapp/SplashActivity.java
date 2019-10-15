@@ -21,7 +21,6 @@ public class SplashActivity extends AppCompatActivity {
     private Context caramelContext = this;
 
     private static final int SDK_READY_TIME = 1_000;
-    private static final int ADS_POST_TIME = 10_000;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,7 +42,6 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void sdkFailed() {
-                caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
                 Log.d("###", "SDK is failed");
                 startActivity(new Intent(caramelContext, TestActivity.class));
                 finish();
@@ -51,7 +49,6 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void adLoaded() {
-                caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
                 Log.d("###", "SDK is loaded");
                 startActivity(new Intent(caramelContext, TestActivity.class));
                 CaramelIntegration.showAds();
@@ -60,24 +57,22 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void adOpened() {
-                Log.d("###", "SDK is opened");
+                Log.d("###", "AD is opened");
 
             }
 
             @Override
             public void adClicked() {
-                Log.d("###", "SDK is clicked");
+                Log.d("###", "AD is clicked");
             }
 
             @Override
             public void adClosed() {
-                caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
-                Log.d("###", "SDK is closed");
+                Log.d("###", "AD is closed");
             }
 
             @Override
             public void adFailed() {
-                caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
                 Log.d("###", "Ad is failed");
                 startActivity(new Intent(caramelContext, TestActivity.class));
                 finish();
