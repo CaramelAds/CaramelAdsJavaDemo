@@ -1,9 +1,8 @@
-Version 9.5.0
+Version 9.6.0
 
 ## ENG ( RUS version below )
 
-## What’s new:
-    1. Fixes library performance with 9x verions Android OS
+
 ## How to use:
 
 1. Add link to our maven-repository:
@@ -223,8 +222,6 @@ Version 9.5.0
 # RUS 
 
 
-## Что нового:
-    1. Исправлены проблемы библиотеки в 9x версиях Android OS.
 
 
 ## Как использовать:
