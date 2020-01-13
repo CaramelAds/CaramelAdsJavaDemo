@@ -13,7 +13,9 @@ import androidx.fragment.app.FragmentManager;
 
 import com.caramelads.carameldemoapp.caramel.CaramelIntegration;
 import com.caramelads.sdk.CaramelAdListener;
+import com.caramelads.sdk.CaramelAds;
 import com.caramelads.sdk.ConsentDialog;
+import com.caramelads.sdk.LogListener;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -26,6 +28,12 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_act);
+        CaramelAds.setLogListener(new LogListener() {
+            @Override
+            public void onPrint(String s, String s1) {
+                Log.e("Caramel Log:", s + " | " + s1);
+            }
+        });
         setupCaramel();
     }
 

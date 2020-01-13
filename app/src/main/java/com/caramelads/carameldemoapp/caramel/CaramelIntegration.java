@@ -30,18 +30,24 @@ public class CaramelIntegration {
             public void sdkReady() {
                 ConsentDialog consentDialog = new ConsentDialog.Builder().withContext(caramelContext).ifNeeded().build();
                 consentDialog.show();
-                caramelHandler.postDelayed(caramelRunnable, SDK_READY_TIME);
+                if (!((Activity) caramelContext).isFinishing() ) {
+                    caramelHandler.postDelayed(caramelRunnable, SDK_READY_TIME);
+                }
                 Log.d("###", "SDK is ready");
             }
 
             @Override
             public void sdkFailed() {
-                caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
+                if (!((Activity) caramelContext).isFinishing() ) {
+                    caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
+                }
             }
 
             @Override
             public void adLoaded() {
-                caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
+                if (!((Activity) caramelContext).isFinishing() ) {
+                    caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
+                }
                 Log.d("###", "SDK is loaded");
             }
 
@@ -57,13 +63,17 @@ public class CaramelIntegration {
 
             @Override
             public void adClosed() {
-                caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
+                if (!((Activity) caramelContext).isFinishing() ) {
+                    caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
+                }
                 Log.d("###", "SDK is closed");
             }
 
             @Override
             public void adFailed() {
-                caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
+                if (!((Activity) caramelContext).isFinishing() ) {
+                    caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
+                }
                 Log.d("###", "SDK is failed");
             }
         });

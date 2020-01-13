@@ -1,22 +1,23 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
 
         //write your applicationId:
-        applicationId "com.caramelads.only"
-//        applicationId "com.networks.all_1"
+        applicationId "com.networks.all_1"
+
 
         minSdkVersion 17
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
     }
     buildTypes {
         release {
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
             minifyEnabled true
@@ -27,12 +28,8 @@ android {
 
 dependencies {
     //noinspection GradleCompatible
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
-    implementation('com.caramelads:sdk:9.6.0') {
-        exclude module: 'libAvid-mopub' // To exclude AVID
-        exclude module: 'moat-mobile-app-kit' // To exclude Moat
-        transitive = true
-    }
+    implementation('com.caramelads:sdk:9.10.1')
 }

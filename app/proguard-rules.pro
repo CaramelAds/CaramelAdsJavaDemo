@@ -5,35 +5,10 @@
 -dontoptimize
 -dontpreverify
 
--keep class com.caramelads.model.MainResponse{ *; }
--keep class com.caramelads.webview.InterstitialWebView{*;}
 
--keep class com.caramelads.internal.FactoryImpl{ *;}
-
--keep class com.caramelads.sdk.** { *; }
--keep interface com.caramelads.sdk.** { *; }
-
--keep class com.caramelads.model.** { *; }
--keep interface com.caramelads.model.** { *; }
-
--keep class com.caramelads.networking.** { *; }
--keep interface com.caramelads.networking.** { *; }
-
--keep class com.caramelads.external.** { *; }
--keep interface com.caramelads.external.** { *; }
-
--keep class com.caramelads.logs.** { *; }
--keep interface com.caramelads.logs.** { *; }
-
-
--keep class okhttp3.**{ *; }
--keep class retrofit2.**{ *; }
--keep class com.google.gson.**{ *; }
--keep class okio.**{ *; }
-
-
-
-
+-keepclassmembers,allowobfuscation class * {
+  @com.google.gson.annotations.SerializedName <fields>;
+}
 
 #retrofit
 #https://github.com/square/retrofit/blob/master/retrofit/src/main/resources/META-INF/proguard/retrofit2.pro
@@ -79,6 +54,16 @@
 -keepclassmembers class * extends org.greenrobot.eventbus.util.ThrowableFailureEvent {
     <init>(java.lang.Throwable);
 }
+
+
+#adtiming
+
+-dontwarn com.aiming.mdt.**.*
+-dontwarn com.mopub.**.*
+
+-dontoptimize
+-dontskipnonpubliclibraryclasses
+-keepattributes *Annotation*
 
 
 
@@ -140,7 +125,7 @@
 -keepclassmembers class ** { @com.mopub.common.util.ReflectionTarget *; }
 
 #adtiming
- -dontwarn com.aiming.mdt.**.*
+-dontwarn com.aiming.mdt.**.*
  -dontwarn com.mopub.**.*
  -dontoptimize
  -dontskipnonpubliclibraryclasses
@@ -151,10 +136,12 @@
  -keepclassmembers class **.R$* {
      public static <fields>;
  }
- -keepattributes *Annotation*,InnerClasses
- -keepnames class * implements android.os.Parcelable {
+  -keepattributes *Annotation ,*InnerClasses
+  -keepnames class * implements android.os.Parcelable {
      public static final ** CREATOR;
 }
+
+
 
 #unity ads
 -keepattributes SourceFile,LineNumberTable
@@ -168,19 +155,22 @@
 #inmobi
 -keepattributes SourceFile,LineNumberTable
 -keep class com.inmobi.** { *; }
--dontwarn com.inmobi.**
 -keep public class com.google.android.gms.**
 -dontwarn com.google.android.gms.**
 -dontwarn com.squareup.picasso.**
--keep class com.google.android.gms.ads.identifier.AdvertisingIdClient{public *;}
--keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info{public *;}
-#skip the Picasso library classes
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient{
+     public *;
+}
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info{
+     public *;
+}
+# skip the Picasso library classes
 -keep class com.squareup.picasso.** {*;}
--dontwarn com.squareup.picasso.**
 -dontwarn com.squareup.okhttp.**
-#skip Moat classes
+# skip Moat classes
 -keep class com.moat.** {*;}
 -dontwarn com.moat.**
-#skip AVID classes
--keep class com.integralads.avid.library.** {*;}
+# skip IAB classes
+-keep class com.iab.** {*;}
+-dontwarn com.iab.**
 
