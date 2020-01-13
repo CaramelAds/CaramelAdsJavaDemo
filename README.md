@@ -214,8 +214,8 @@ Version 9.10.1
 
 1.	Добавьте ссылку на наш maven-репозиторий:
 
-       maven {url "https://maven.caramelads.com/repository/maven-releases"}
-       maven {url "https://dl.adtiming.com/android-sdk"}
+       		maven {url "https://maven.caramelads.com/repository/maven-releases"}
+       		maven {url "https://dl.adtiming.com/android-sdk"}
 
 2.	Добавьте зависимость в build.gradle:
 
