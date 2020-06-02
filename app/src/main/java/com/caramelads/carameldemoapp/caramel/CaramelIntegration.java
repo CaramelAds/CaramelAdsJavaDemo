@@ -8,19 +8,31 @@ import android.util.Log;
 import com.caramelads.sdk.CaramelAdListener;
 import com.caramelads.sdk.ConsentDialog;
 
+import java.util.Random;
+
 
 public class CaramelIntegration {
     private Context caramelContext;
     private Handler caramelHandler = new Handler();
 
     private static final int SDK_READY_TIME = 1_000;
-    private static final int ADS_POST_TIME = 10_000;
+    private static int ADS_POST_TIME;
+    private static boolean first = true;
     private static boolean adLoaded = false;
     private static boolean adFailed = false;
+    private static Random random;
+    private static final int REQUEST_MIN_TIME = 150_000;
+    private static final int REQUEST_MAX_TIME = 240_000;
+    private static final int diff = REQUEST_MAX_TIME - REQUEST_MIN_TIME;
 
     public CaramelIntegration(Context context){
         caramelContext = context;
         setupCaramel();
+        random = new Random();
+    }
+
+    public void setCaramelContext(Context caramelContext) {
+        this.caramelContext = caramelContext;
     }
 
     private void setupCaramel(){
@@ -30,8 +42,14 @@ public class CaramelIntegration {
             public void sdkReady() {
                 ConsentDialog consentDialog = new ConsentDialog.Builder().withContext(caramelContext).ifNeeded().build();
                 consentDialog.show();
-                if (!((Activity) caramelContext).isFinishing() ) {
-                    caramelHandler.postDelayed(caramelRunnable, SDK_READY_TIME);
+                if (!((Activity) caramelContext).isFinishing()) {
+                    if (first) {
+                        caramelHandler.postDelayed(caramelRunnable, SDK_READY_TIME);
+                        first = false;
+                    } else {
+                        ADS_POST_TIME = random.nextInt(diff + 1 ) + REQUEST_MIN_TIME;
+                        caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
+                    }
                 }
                 Log.d("###", "SDK is ready");
             }
@@ -39,6 +57,7 @@ public class CaramelIntegration {
             @Override
             public void sdkFailed() {
                 if (!((Activity) caramelContext).isFinishing() ) {
+                    ADS_POST_TIME = random.nextInt(diff + 1 ) + REQUEST_MIN_TIME;
                     caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
                 }
             }
@@ -46,6 +65,7 @@ public class CaramelIntegration {
             @Override
             public void adLoaded() {
                 if (!((Activity) caramelContext).isFinishing() ) {
+                    ADS_POST_TIME = random.nextInt(diff + 1 ) + REQUEST_MIN_TIME;
                     caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
                 }
                 Log.d("###", "SDK is loaded");
@@ -63,15 +83,13 @@ public class CaramelIntegration {
 
             @Override
             public void adClosed() {
-                if (!((Activity) caramelContext).isFinishing() ) {
-                    caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
-                }
                 Log.d("###", "SDK is closed");
             }
 
             @Override
             public void adFailed() {
                 if (!((Activity) caramelContext).isFinishing() ) {
+                    ADS_POST_TIME = random.nextInt(diff + 1 ) + REQUEST_MIN_TIME;
                     caramelHandler.postDelayed(caramelRunnable, ADS_POST_TIME);
                 }
                 Log.d("###", "SDK is failed");

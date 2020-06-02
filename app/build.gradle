@@ -8,6 +8,7 @@ android {
         applicationId "com.networks.all_1"
 
 
+
         minSdkVersion 17
         targetSdkVersion 29
         versionCode 1
@@ -16,10 +17,6 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-        debug {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
