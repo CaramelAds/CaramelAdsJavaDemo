@@ -201,6 +201,7 @@ Version 9.10.1
         			android:name=".caramel.CaramelApp"
       
 	Ads showing:
+	Call CaramelIntegration.showAds() to show ad
 	Several elements in the application, that will show ad by click, excepting leaving from application with ‘back’ buttons. 
     	Common integration example – when move to a new activity or fragment. You can download test integration example, which 			implements above described algorithm.
 
@@ -418,7 +419,8 @@ Version 9.10.1
 		<application
         		android:name=".caramel.CaramelApp"
 	    
-	Отображение рекламы:
+	Отображение рекламы: 
+	Метод CaramelIntegration.showAds() отображает рекламу
 	Элементы в приложении, при клике на которые, осуществляется показ рекламы, за исключением – кнопок back при выходе из 	 		приложения. Типичный пример показа – при переходе на новую активность или фрагмент. Вы можете скачать пример тестовой 			интеграции, реализующей вышеописанный алгоритм.
 
 
