@@ -195,7 +195,7 @@ Version 9.10.1
     
 4. Scenarios of ads showing:
 	Ad loading:	
-	In the class extends Application class using Application.AcitivityLifecycleCallbacks (showed in example) just copy it to your 		project and add it in manifest.xml
+	In the class extends Application class using Application.AcitivityLifecycleCallbacks (showed in example) just copy it to your 		project and add it in manifest.xml, add your additional code, if necessary.
 			
 			<application
         			android:name=".caramel.CaramelApp"
@@ -414,7 +414,7 @@ Version 9.10.1
 4.	Сценарии показа рекламы:
 	
 	Загрузка рекламы:
-	В классе, наследующем класс Application, используя Application.ActivityLifecycleCallbacks (показано в примере) просто скопируйте 	 этот класс и добавьте в manifest.xml 
+	В классе, наследующем класс Application, используя Application.ActivityLifecycleCallbacks (показано в примере) просто скопируйте 	 этот класс и добавьте в manifest.xml, при необходимости можно добавлять свой код
 	
 		<application
         		android:name=".caramel.CaramelApp"
