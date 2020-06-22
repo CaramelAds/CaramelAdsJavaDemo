@@ -200,7 +200,7 @@ Version 9.10.1
 	If you use our sdk before new time-request rules pls remove old integration code (except ad showing places)
 
 	Ad loading:	
-	In the class extends Application class using Application.AcitivityLifecycleCallbacks each 150-240sec (showed in example) If you 	want the easiest way then just copy package 'caramel' (it has to classes CaramelIntegration and CaramelApp) to your project and 	add CaramelApp in manifest.xml, add your additional code, if necessary.
+	In the class extends Application class using Application.AcitivityLifecycleCallbacks each 150-240sec (showed in example) If you 	want the easiest way then just copy package from test integration 'caramel' (it has two classes: CaramelIntegration and 		CaramelApp) to your project and add CaramelApp in manifest.xml, add your additional code, if necessary.
 			
 			<application
         			android:name=".caramel.CaramelApp"
@@ -420,14 +420,19 @@ Version 9.10.1
 
 
 4.	Сценарии показа рекламы:
+
+	Внимание:
+	
+	Если вы использовали наше sdk перед новыми правилами тайминга запросов рекламы, пожалуйста удалите старый код интеграции 		(исключая места показа рекламы)
 	
 	Загрузка рекламы:
-	В классе, наследующем класс Application, используя Application.ActivityLifecycleCallbacks (показано в примере) просто скопируйте 	 этот класс и добавьте в manifest.xml, при необходимости можно добавлять свой код
+	В классе, наследующем класс Application, используя Application.ActivityLifecycleCallbacks каждые 150-240 секунд (показано в 		примере). Если вы ищете наиболее легий путь просто скопируйте пакет из тестовой интеграции 'caramel' (В нем находятся классы 		CaramelIntegration и CaramelApp) добавьте в manifest.xml, при необходимости можно добавлять свой код
 	
 		<application
         		android:name=".caramel.CaramelApp"
 	    
-	Отображение рекламы: 
+	Отображение рекламы:
+	
 	Метод CaramelIntegration.showAds() отображает рекламу
 	
 	Элементы в приложении, при клике на которые, осуществляется показ рекламы, за исключением – кнопок back при выходе из 	 		приложения. В играх типичный пример показа при переходе на новый уровень. В обычных приложениях типичный пример показа при 		переходе на новый экран(через активность или фрагмент) и возврате, также можно использовать действия пользователя, если такие 		функции есть в приложении(сохранение файла, окончание редактирования текста и т.п.). 
