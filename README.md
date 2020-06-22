@@ -194,16 +194,24 @@ Version 9.10.1
 
     
 4. Scenarios of ads showing:
+	
+	Attention: 
+	
+	If you use our sdk before new time-request rules pls remove old integration code (except ad showing places)
+
 	Ad loading:	
-	In the class extends Application class using Application.AcitivityLifecycleCallbacks (showed in example) just copy it to your 		project and add it in manifest.xml, add your additional code, if necessary.
+	In the class extends Application class using Application.AcitivityLifecycleCallbacks each 150-240sec (showed in example) If you 	want the easiest way then just copy package 'caramel' (it has to classes CaramelIntegration and CaramelApp) to your project and 	add CaramelApp in manifest.xml, add your additional code, if necessary.
 			
 			<application
         			android:name=".caramel.CaramelApp"
       
 	Ads showing:
-	Call CaramelIntegration.showAds() to show ad
-	Several elements in the application, that will show ad by click, excepting leaving from application with ‘back’ buttons. 
-    	Common integration example – when move to a new activity or fragment. You can download test integration example, which 			implements above described algorithm.
+	
+	Call method CaramelIntegration.showAds() to show ad
+	
+	Elements in the application, that will show ad by click, excepting leaving from application with ‘back’ buttons. In the games 		tipical showing example when player moves to next level or game over. In the other apps tipical showing example – when move to a 	 new screen(through activity or fragment) and back, also you can use some user actions if it exists (such as file saving, ending 	 of text editing and etc). 
+	
+	You can download test integration example, which implements above described algorithm.
 
 
 # Thank you for use our product!
