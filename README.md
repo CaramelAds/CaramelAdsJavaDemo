@@ -19,7 +19,7 @@ Version 9.17.0
 	
 	Attention: 
 	
-	If you use our sdk before new time-request rules pls remove old integration code (except ad showing places)
+	If you use our sdk before new time-request rules pls remove old integration code and our old proguard-rules.pro (except ad showing places) 
 
 	Ad loading:	
 	In the class extends Application class using Application.AcitivityLifecycleCallbacks each 150-240sec (showed in example) If you 	want the easiest way then just copy package 'caramel' from test integration  (it has two classes: CaramelIntegration and 		CaramelApp) to your project and add CaramelApp in manifest.xml, add your additional code, if necessary.
@@ -59,7 +59,7 @@ Version 9.17.0
 
 	Внимание:
 	
-	Если вы использовали наше sdk перед новыми правилами тайминга запросов рекламы, пожалуйста удалите старый код интеграции 		(исключая места показа рекламы)
+	Если вы использовали наше sdk перед новыми правилами тайминга запросов рекламы, пожалуйста удалите старый код интеграции и старые proguard-rules.pro		(исключая места показа рекламы)
 	
 	Загрузка рекламы:
 	В классе, наследующем класс Application, используя Application.ActivityLifecycleCallbacks каждые 150-240 секунд (показано в 		примере). Если вы ищете наиболее легий путь просто скопируйте пакет из тестовой интеграции 'caramel' (В нем находятся классы 		CaramelIntegration и CaramelApp) добавьте в manifest.xml, при необходимости можно добавлять свой код
