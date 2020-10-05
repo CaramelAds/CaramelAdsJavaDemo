@@ -1,4 +1,4 @@
-Version 9.17.0
+Version 9.17.1
 
 ## ENG ( RUS version below )
 
@@ -13,7 +13,7 @@ Version 9.17.0
 
 2. Add dependency in build.gradle:
 
-          implementation ('com.caramelads:sdk:9.17.0')
+          implementation ('com.caramelads:sdk:9.17.1')
     
 3. Scenarios of ads showing:
 	
@@ -53,7 +53,7 @@ Version 9.17.0
 
 2.	Добавьте зависимость в build.gradle:
 
-                implementation ('com.caramelads:sdk:9.17.0')
+                implementation ('com.caramelads:sdk:9.17.1')
 
 3.	Сценарии показа рекламы:
 
