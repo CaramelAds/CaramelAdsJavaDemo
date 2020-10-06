@@ -11,11 +11,17 @@ Version 9.17.1
        maven {url "https://chartboostmobile.bintray.com/Chartboost"}
        
 
-2. Add dependency in build.gradle:
+2. Add dependency to build.gradle:
 
           implementation ('com.caramelads:sdk:9.17.1')
-    
-3. Scenarios of ads showing:
+3. Add this to build.gradle
+	  	
+		compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    	}
+	   
+4. Scenarios of ads showing:
 	
 	Attention: 
 	
@@ -54,8 +60,14 @@ Version 9.17.1
 2.	Добавьте зависимость в build.gradle:
 
                 implementation ('com.caramelads:sdk:9.17.1')
+3.      Добавьте это в build.gradle:
+		
+		     compileOptions {
+            targetCompatibility JavaVersion.VERSION_1_8
+            sourceCompatibility JavaVersion.VERSION_1_8
+    	    }
 
-3.	Сценарии показа рекламы:
+4.	Сценарии показа рекламы:
 
 	Внимание:
 	
