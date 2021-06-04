@@ -1,4 +1,4 @@
-Version 9.17.1
+Version 9.20.0
 
 ## ENG ( RUS version below )
 
@@ -9,11 +9,12 @@ Version 9.17.1
     
        maven {url "https://maven.caramelads.com/repository/maven-releases"}
        maven {url "https://chartboostmobile.bintray.com/Chartboost"}
+       maven { url 'https://dl.bintray.com/ironsource-mobile/android-sdk'}
        
 
 2. Add dependency to build.gradle:
 
-          implementation ('com.caramelads:sdk:9.17.1')
+          implementation ('com.caramelads:sdk:9.20.0')
 3. Add this to build.gradle
 	  	
 		compileOptions {
@@ -56,10 +57,11 @@ Version 9.17.1
 
        		maven {url "https://maven.caramelads.com/repository/maven-releases"}
        		maven {url "https://chartboostmobile.bintray.com/Chartboost"}
+       		maven { url 'https://dl.bintray.com/ironsource-mobile/android-sdk'}
 
 2.	Добавьте зависимость в build.gradle:
 
-                implementation ('com.caramelads:sdk:9.17.1')
+                implementation ('com.caramelads:sdk:9.20.0')
 3.      Добавьте это в build.gradle:
 		
 		     compileOptions {
