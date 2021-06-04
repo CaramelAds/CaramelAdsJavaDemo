@@ -3,12 +3,10 @@ package com.caramelads.carameldemoapp.caramel;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class CaramelApp extends Application implements Application.ActivityLifecycleCallbacks{
-
     private boolean first = true;
     private CaramelIntegration caramelIntegration;
 
@@ -16,7 +14,6 @@ public class CaramelApp extends Application implements Application.ActivityLifec
     public void onCreate() {
         super.onCreate();
         registerActivityLifecycleCallbacks(this);
-
     }
 
     @Override

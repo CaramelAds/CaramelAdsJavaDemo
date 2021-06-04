@@ -3,16 +3,13 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 29
     defaultConfig {
-
         //write your applicationId:
-        applicationId "com.networks.all_1"
+        applicationId "com.networks.all"
 
-
-
-        minSdkVersion 17
+        minSdkVersion 19
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
         multiDexEnabled true
     }
     buildTypes {
@@ -34,6 +31,6 @@ dependencies {
     //noinspection GradleCompatible
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-
-    implementation('com.caramelads:sdk:9.17.1')
+    //Caramel
+    implementation('com.caramelads:sdk:9.20.0')
 }
