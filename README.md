@@ -8,7 +8,7 @@ Version 9.20.0
 1. Add links to our maven-repository:
     
        maven {url "https://maven.caramelads.com/repository/maven-releases"}
-       maven {url "https://chartboostmobile.bintray.com/Chartboost"}
+       maven {url "https://android-sdk.is.com/"}
        maven { url 'https://dl.bintray.com/ironsource-mobile/android-sdk'}
        
 
@@ -56,7 +56,7 @@ Version 9.20.0
 1.	Добавьте ссылку на наш maven-репозиторий:
 
        		maven {url "https://maven.caramelads.com/repository/maven-releases"}
-       		maven {url "https://chartboostmobile.bintray.com/Chartboost"}
+       		maven {url "https://android-sdk.is.com/"}
        		maven { url 'https://dl.bintray.com/ironsource-mobile/android-sdk'}
 
 2.	Добавьте зависимость в build.gradle:
