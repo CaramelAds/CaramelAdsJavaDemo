@@ -3,6 +3,8 @@ package com.caramelads.carameldemoapp;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.text.Html;
+import android.view.Gravity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -12,18 +14,63 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
-
-import com.caramelads.carameldemoapp.caramel.CaramelIntegration;
+import com.caramelads.sdk.CaramelAdListener;
+import com.caramelads.sdk.CaramelAds;
 
 public class TestActivity extends AppCompatActivity {
     private RelativeLayout rootLayout;
     private Point screenSize;
+    private ImageView button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_test);
+
+        //inittialize Caramel ADS
+        CaramelAds.initialize(TestActivity.this);
+
+        // event listener. You can set your own actions in response to events
+        CaramelAds.setAdListener(new CaramelAdListener() {
+            @Override
+            public void sdkReady() {
+                showToast("SDK READY","sdk is ready, wait while ad is load to cache and Caramel button is enable");
+                //cache ads after CaramelSDK is ready
+                CaramelAds.cache(TestActivity.this);
+            }
+
+            @Override
+            public void sdkFailed() {
+                showToast("SDK FAILED","sdk is failed");
+            }
+
+            @Override
+            public void adLoaded() {
+                showToast("AD LOADED","ad is loaded and you can push the Caramel button");
+            }
+
+            @Override
+            public void adOpened() {
+                showToast("AD OPENED","ad is opened");
+            }
+
+            @Override
+            public void adClicked() {
+                showToast("AD CLICKED","clicked on ad");
+            }
+
+            @Override
+            public void adClosed() {
+                showToast("AD CLOSED","ad is closed");
+            }
+
+            @Override
+            public void adFailed() {
+                showToast("AD FAILED","ad is failed");
+            }
+        });
 
         initRes();
         int itemWidth=screenSize.x/5,itemHeight=screenSize.y/12;
@@ -40,7 +87,7 @@ public class TestActivity extends AppCompatActivity {
         initCloud(itemWidth,itemHeight,R.drawable.cloudright,1400,screenSize.x, screenSize.x/1.4f,0,0);
         initCloud(itemWidth,itemHeight,R.drawable.cloudleft,2000,-itemWidth,(screenSize.x/6), screenSize.y/2.8f, screenSize.y/2.8f);
 
-        ImageView button=initImage(itemWidth,itemWidth,R.drawable.button);
+        button=initImage(itemWidth,itemWidth,R.drawable.button);
         button.startAnimation(initButtonAnimation());
         button.setTranslationX((screenSize.x/2)-itemWidth/2.5f);
         button.setTranslationY(screenSize.y/3.8f);
@@ -50,9 +97,13 @@ public class TestActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(TestActivity.this, AnotherActivity.class));
-                // show caramel ads
-                CaramelIntegration.showAds();
+                // show caramel ads if is loaded
+                if(CaramelAds.isLoaded()) {
+                    startActivity(new Intent(TestActivity.this, AnotherActivity.class));
+                    CaramelAds.show();
+                }
+                else
+                    showToast("WAIT","wait while ad is load to cache and Caramel button is enable");
             }
         });
     }
@@ -92,6 +143,12 @@ public class TestActivity extends AppCompatActivity {
         scaleIn.setRepeatCount(Animation.INFINITE);
         scaleIn.setRepeatMode(Animation.REVERSE);
         return scaleIn;
+    }
+
+    private void showToast(String title,String text){
+        Toast toast=Toast.makeText(TestActivity.this, Html.fromHtml("<br><b><font color=#f89406>"+title+"</color></b><br>"+text+"<br>"),Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER|Gravity.FILL_HORIZONTAL,0,0);
+        toast.show();
     }
 
 }

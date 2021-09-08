@@ -2,11 +2,10 @@ package com.caramelads.carameldemoapp;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import com.caramelads.carameldemoapp.caramel.CaramelIntegration;
+
+import com.caramelads.sdk.CaramelAds;
 
 public class AnotherActivity extends AppCompatActivity {
     @Override
@@ -26,7 +25,7 @@ public class AnotherActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        // show caramel ads
-        CaramelIntegration.showAds();
+        // call the caching method to reload the ad
+        CaramelAds.cache(AnotherActivity.this);
     }
 }
