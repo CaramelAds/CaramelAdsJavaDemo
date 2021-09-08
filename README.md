@@ -8,24 +8,12 @@ Version 9.20.0
 1. Add links to our maven-repository to build.gradle (project):
 
           ...
-          buildscript {
-              repositories {
-                  google()
-                  jcenter()
-                  maven { url "https://maven.caramelads.com/repository/maven-releases" }
-              }
-              dependencies {
-                  classpath 'com.android.tools.build:gradle:4.2.0'
-              }
-          }
-          ...
           allprojects {
             repositories {
               google()
               jcenter()
               maven { url "https://maven.caramelads.com/repository/maven-releases" }
-              maven { url "https://android-sdk.is.com/" }
-              maven { url 'https://dl.bintray.com/ironsource-mobile/android-sdk'}
+              maven { url "https://android-sdk.is.com/" }              
             }
           }
           ...
@@ -73,24 +61,12 @@ Version 9.20.0
 1.	Добавьте ссылку на наш maven-репозиторий в файл build.gradle (project):
 
           ...
-          buildscript {
-              repositories {
-                  google()
-                  jcenter()
-                  maven { url "https://maven.caramelads.com/repository/maven-releases" }
-              }
-              dependencies {
-                  classpath 'com.android.tools.build:gradle:4.2.0'
-              }
-          }
-          ...
           allprojects {
             repositories {
               google()
               jcenter()
               maven { url "https://maven.caramelads.com/repository/maven-releases" }
               maven { url "https://android-sdk.is.com/" }
-              maven { url 'https://dl.bintray.com/ironsource-mobile/android-sdk'}
             }
           }
           ...
