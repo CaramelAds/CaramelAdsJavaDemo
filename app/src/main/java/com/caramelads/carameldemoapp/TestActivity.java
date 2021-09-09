@@ -2,10 +2,12 @@ package com.caramelads.carameldemoapp;
 
 import android.content.Intent;
 import android.graphics.Point;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
@@ -14,6 +16,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
@@ -28,7 +31,6 @@ public class TestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_test);
-
         //inittialize Caramel ADS
         CaramelAds.initialize(TestActivity.this);
 
@@ -146,8 +148,22 @@ public class TestActivity extends AppCompatActivity {
     }
 
     private void showToast(String title,String text){
-        Toast toast=Toast.makeText(TestActivity.this, Html.fromHtml("<br><b><font color=#f89406>"+title+"</color></b><br>"+text+"<br>"),Toast.LENGTH_LONG);
-        toast.setGravity(Gravity.CENTER|Gravity.FILL_HORIZONTAL,0,0);
+        Toast toast=new Toast(getApplicationContext());
+        toast.setGravity(Gravity.FILL_HORIZONTAL,0,0);
+        toast.setDuration(Toast.LENGTH_LONG);
+
+        GradientDrawable grad = new GradientDrawable();
+        grad.setColor(0xffffffff);
+        grad.setCornerRadius(6);
+        grad.setStroke(2, 0xff000000);
+
+        TextView tv=new TextView(this);
+        tv.setText(Html.fromHtml("<b><font color=#f89406>"+title+":<br></font></b><br>"+text));
+        tv.setTextSize(20);
+        tv.setGravity(Gravity.CENTER);
+        tv.setBackground(grad);
+
+        toast.setView(tv);
         toast.show();
     }
 
