@@ -1,8 +1,5 @@
 Version 9.20.0
-
 ## ENG ( RUS version below )
-
-
 ## How to use:
 ***
 1. Add links to our maven-repository to build.gradle (project):
