@@ -4,7 +4,7 @@ Version 9.20.0
 1. Add links to our maven-repository to build.gradle (project):
 
           ...
-          ```allprojects``` {
+          allprojects {
             repositories {
               google()
               jcenter()
