@@ -29,7 +29,6 @@ Version 9.20.0
             }
 
 # Scenarios of ads showing
-***
 Attention:
 If you use our sdk before new time-request rules pls remove old integration code and our old proguard-rules.pro (except ad showing places)
 Loading and show ads:
@@ -43,12 +42,7 @@ Loading and show ads:
 
 # Thank you for use our product!
 
-
 # RUS
-
-
-
-
 ## Как использовать:
 
 1.	Добавьте ссылку на наш maven-репозиторий в файл build.gradle (project):
@@ -77,7 +71,7 @@ Loading and show ads:
             ...
           }
 
-#	Показ рекламы:
+# Показ рекламы:
 
   	Внимание:
 
