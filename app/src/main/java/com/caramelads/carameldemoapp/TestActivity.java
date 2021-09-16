@@ -85,9 +85,9 @@ public class TestActivity extends AppCompatActivity {
         title.setAnimation(aan);
         rootLayout.addView(title);
 
-        initCloud(itemWidth,itemHeight,R.drawable.cloudleft,1000,-itemWidth,(screenSize.x/6),0,0);
-        initCloud(itemWidth,itemHeight,R.drawable.cloudright,1400,screenSize.x, screenSize.x/1.4f,0,0);
-        initCloud(itemWidth,itemHeight,R.drawable.cloudleft,2000,-itemWidth,(screenSize.x/6), screenSize.y/2.8f, screenSize.y/2.8f);
+        initCloud(itemWidth,itemHeight,R.drawable.cloud,1000,-itemWidth,(screenSize.x/6),0,0);
+        initCloud(itemWidth,itemHeight,R.drawable.cloud,1400,screenSize.x, screenSize.x/1.4f,0,0);
+        initCloud(itemWidth,itemHeight,R.drawable.cloud,2000,-itemWidth,(screenSize.x/6), screenSize.y/2.8f, screenSize.y/2.8f);
 
         button=initImage(itemWidth,itemWidth,R.drawable.button);
         button.startAnimation(initButtonAnimation());
