@@ -1,4 +1,4 @@
-Version 10.0.0
+Version 10.1.0
 ## ENG ( RUS version below )
 ## How to use:
 1. Add links to our maven-repository to build.gradle (project):
@@ -24,7 +24,7 @@ Version 10.0.0
            }
             dependencies {
               ...
-              implementation('com.caramelads:sdk:10.0.0')
+              implementation('com.caramelads:sdk:10.1.0')
               ...
             }
 
@@ -66,7 +66,7 @@ You can download an example and review the functionality by looking at the comme
          }
           dependencies {
             ...
-            implementation('com.caramelads:sdk:10.0.0')
+            implementation('com.caramelads:sdk:10.1.0')
             ...
           }
 
