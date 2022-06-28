@@ -1,4 +1,4 @@
-Version 10.1.0
+Version 10.6.0
 ## ENG ( RUS version below )
 ## How to use:
 1. Add links to our maven-repository to build.gradle (project):
