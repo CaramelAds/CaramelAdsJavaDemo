@@ -9,7 +9,8 @@ Version 10.1.0
               google()
               jcenter()
               maven { url "https://maven.caramelads.com/repository/maven-releases" }
-              maven { url "https://android-sdk.is.com/" }              
+              maven { url "https://android-sdk.is.com/" }
+              maven { url  "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"}
             }
           }
           ...
@@ -24,7 +25,7 @@ Version 10.1.0
            }
             dependencies {
               ...
-              implementation('com.caramelads:sdk:10.1.0')
+              implementation('com.caramelads:sdk:10.6.0')
               ...
             }
 
@@ -44,7 +45,7 @@ You can download an example and review the functionality by looking at the comme
 # RUS
 ## Как использовать:
 
-1.	Добавьте ссылку на наш maven-репозиторий в файл build.gradle (project):
+1. Добавьте ссылку на наш maven-репозиторий в файл build.gradle (project):
 
           ...
           allprojects {
@@ -53,11 +54,12 @@ You can download an example and review the functionality by looking at the comme
               jcenter()
               maven { url "https://maven.caramelads.com/repository/maven-releases" }
               maven { url "https://android-sdk.is.com/" }
+              maven { url  "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"}
             }
           }
           ...
 
-2.	Добавьте зависимость и опции компилятора в build.gradle (app):
+3. Добавьте зависимость и опции компилятора в build.gradle (app):
 
         ...
         compileOptions {
@@ -66,7 +68,7 @@ You can download an example and review the functionality by looking at the comme
          }
           dependencies {
             ...
-            implementation('com.caramelads:sdk:10.1.0')
+            implementation('com.caramelads:sdk:10.6.0')
             ...
           }
 

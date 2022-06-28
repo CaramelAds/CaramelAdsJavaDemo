@@ -16,6 +16,7 @@ allprojects {
         jcenter()
         maven { url "https://maven.caramelads.com/repository/maven-releases" }
         maven {url "https://android-sdk.is.com/"}
+        maven { url  "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"}
     }
 }
 
