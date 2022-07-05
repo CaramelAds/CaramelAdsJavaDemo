@@ -1,4 +1,4 @@
-Version 10.6.0
+Version 10.7.0.0
 ## ENG ( RUS version below )
 ## How to use:
 1. Add links to our maven-repository to build.gradle (project):
@@ -8,9 +8,11 @@ Version 10.6.0
             repositories {
               google()
               jcenter()
-              maven { url "https://maven.caramelads.com/repository/maven-releases" }
-              maven { url "https://android-sdk.is.com/" }
-              maven { url  "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"}
+              maven {url "https://maven.caramelads.com/repository/maven-releases"}
+              maven {url "https://android-sdk.is.com/"}
+              maven {url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"}       
+              maven {url "https://sdk.tapjoy.com/"}
+              maven {url "https://artifact.bytedance.com/repository/pangle"}
             }
           }
           ...
@@ -25,7 +27,7 @@ Version 10.6.0
            }
             dependencies {
               ...
-              implementation('com.caramelads:sdk:10.6.0')
+              implementation('com.caramelads:sdk:11.7.0.0')
               ...
             }
 
@@ -52,9 +54,11 @@ You can download an example and review the functionality by looking at the comme
             repositories {
               google()
               jcenter()
-              maven { url "https://maven.caramelads.com/repository/maven-releases" }
-              maven { url "https://android-sdk.is.com/" }
-              maven { url  "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"}
+              maven {url "https://maven.caramelads.com/repository/maven-releases"}
+              maven {url "https://android-sdk.is.com/"}
+              maven {url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"}       
+              maven {url "https://sdk.tapjoy.com/"}
+              maven {url "https://artifact.bytedance.com/repository/pangle"}
             }
           }
           ...
@@ -68,7 +72,7 @@ You can download an example and review the functionality by looking at the comme
          }
           dependencies {
             ...
-            implementation('com.caramelads:sdk:10.6.0')
+            implementation('com.caramelads:sdk:10.7.0.0')
             ...
           }
 
