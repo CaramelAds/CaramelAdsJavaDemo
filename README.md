@@ -27,7 +27,7 @@ Version 10.7.0.0
            }
             dependencies {
               ...
-              implementation('com.caramelads:sdk:11.7.0.0')
+              implementation('com.caramelads:sdk:10.7.0.0')
               ...
             }
 
