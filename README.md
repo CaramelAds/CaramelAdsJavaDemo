@@ -1,6 +1,11 @@
-Version 10.7.0.0
+<h1 align="center">Caramel 10.10.1.0</h1>
+
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=E67E22&multiline=true&width=435&lines=Caramel+AD+for+Java+Android)](https://git.io/typing-svg)
+
+![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white) ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
+
 ## ENG ( RUS version below )
-## How to use:
+### How to use:
 1. Add links to our maven-repository to build.gradle (project):
 
           ...
@@ -27,11 +32,11 @@ Version 10.7.0.0
            }
             dependencies {
               ...
-              implementation('com.caramelads:sdk:10.7.0.0')
+              implementation('com.caramelads:sdk:10.10.1.0')
               ...
             }
 
-# Scenarios of ads showing
+### Scenarios of ads showing
 Attention:
     If you use our sdk before new time-request rules pls remove old integration code and our old proguard-rules.pro (except ad showing places)
     Loading and show ads:
@@ -42,10 +47,10 @@ Application example:
 
 You can download an example and review the functionality by looking at the comments in the code.
 
-# Thank you for use our product!
+### Thank you for use our product!
 
-# RUS
-## Как использовать:
+#№ RUS
+##№ Как использовать:
 
 1. Добавьте ссылку на наш maven-репозиторий в файл build.gradle (project):
 
@@ -72,11 +77,11 @@ You can download an example and review the functionality by looking at the comme
          }
           dependencies {
             ...
-            implementation('com.caramelads:sdk:10.7.0.0')
+            implementation('com.caramelads:sdk:10.10.1.0')
             ...
           }
 
-# Показ рекламы:
+#№№ Показ рекламы:
 
 Внимание:
     Если вы использовали наше SDK перед новыми правилами тайминга запросов рекламы, пожалуйста удалите старый код интеграции и старые proguard-rules.pro
@@ -88,4 +93,4 @@ You can download an example and review the functionality by looking at the comme
 
 Вы можете скачать пример и рассмотреть функциональные возможности ориентируясь по комментариям в коде.
 
-# Спасибо, что используете наш продукт!
+#№№ Спасибо, что используете наш продукт!

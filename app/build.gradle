@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     defaultConfig {
         //write your applicationId:
         applicationId "com.networks.all"
 
         minSdkVersion 19
-        targetSdkVersion 30
-        versionCode 6
-        versionName "1.5"
+        targetSdkVersion 31
+        versionCode 7
+        versionName "7"
         multiDexEnabled true
     }
     buildTypes {
@@ -31,5 +31,5 @@ dependencies {
     //noinspection GradleCompatible
     implementation 'androidx.appcompat:appcompat:1.1.0'
     //Caramel
-    implementation('com.caramelads:sdk:10.7.0.0')
+    implementation 'com.caramelads:sdk:10.10.1.0'
 }
