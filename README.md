@@ -49,8 +49,8 @@ You can download an example and review the functionality by looking at the comme
 
 ### Thank you for use our product!
 
-#№ RUS
-##№ Как использовать:
+## RUS
+### Как использовать:
 
 1. Добавьте ссылку на наш maven-репозиторий в файл build.gradle (project):
 
