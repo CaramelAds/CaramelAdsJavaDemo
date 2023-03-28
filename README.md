@@ -81,7 +81,7 @@ You can download an example and review the functionality by looking at the comme
             ...
           }
 
-#№№ Показ рекламы:
+### Показ рекламы:
 
 Внимание:
     Если вы использовали наше SDK перед новыми правилами тайминга запросов рекламы, пожалуйста удалите старый код интеграции и старые proguard-rules.pro
@@ -93,4 +93,4 @@ You can download an example and review the functionality by looking at the comme
 
 Вы можете скачать пример и рассмотреть функциональные возможности ориентируясь по комментариям в коде.
 
-#№№ Спасибо, что используете наш продукт!
+### Спасибо, что используете наш продукт!
