@@ -1,4 +1,4 @@
-<h1 align="center">Caramel 10.10.3.0</h1>
+<h1 align="center">Caramel 10.10.4.0</h1>
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=E67E22&multiline=true&width=435&lines=Caramel+AD+for+Java+Android)](https://git.io/typing-svg)
 
@@ -32,9 +32,71 @@
            }
             dependencies {
               ...
-              implementation('com.caramelads:sdk:10.10.3.0')
+              implementation('com.caramelads:sdk:10.10.4.0')
               ...
             }
+3. Example:    
+          ...
+          protected void onCreate(Bundle savedInstanceState) {
+              super.onCreate(savedInstanceState);
+              setContentView(R.layout.main_activity);
+              //inittialize Caramel ADS
+              CaramelAds.initialize(MainActivity.this);
+         
+              // event listener. You can set your own actions in response to events
+              CaramelAds.setAdListener(new CaramelAdListener() {
+                  @Override
+                  public void sdkReady() {
+                      Log.d("SDK READY","sdk is ready, wait while ad is load to cache and Caramel button is enable");
+                      //cache ads after CaramelSDK is ready
+                      CaramelAds.cache(MainActivity.this);
+                  }
+
+                  @Override
+                  public void sdkFailed() {
+                      Log.d("SDK FAILED","sdk is failed");
+                  }
+
+                  @Override
+                  public void adLoaded() {
+                      Log.d("AD LOADED","ad is loaded and you can push the Caramel button");
+                  }
+
+                  @Override
+                  public void adOpened() {
+                      Log.d("AD OPENED","ad is opened");
+                  }
+
+                  @Override
+                  public void adClicked() {
+                      Log.d("AD CLICKED","clicked on ad");
+                  }
+
+                  @Override
+                  public void adClosed() {
+                      Log.d("AD CLOSED","ad is closed");
+                  }
+
+                  @Override
+                  public void adFailed() {
+                      Log.d("AD FAILED","ad is failed");
+                  }
+              });
+
+            MyButton.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View view) {
+                      // show caramel ads if is loaded
+                      if(CaramelAds.isLoaded()) {
+                          CaramelAds.show();
+                       }
+                      else{
+                          Log.d("WAIT","wait while ad is load to cache and Caramel button is enable");
+                      }
+                  }
+            });  
+          }
+          ...
 
 ### Scenarios of ads showing
 Attention:
@@ -77,10 +139,71 @@ You can download an example and review the functionality by looking at the comme
          }
           dependencies {
             ...
-            implementation('com.caramelads:sdk:10.10.3.0')
+            implementation('com.caramelads:sdk:10.10.4.0')
             ...
           }
+3. Пример использования:    
+          ...
+          protected void onCreate(Bundle savedInstanceState) {
+              super.onCreate(savedInstanceState);
+              setContentView(R.layout.main_activity);
+              //инициализация Caramel ADS
+              CaramelAds.initialize(MainActivity.this);
+         
+              // Слушатель событий. Установка интерфейса для слушателя событий
+              CaramelAds.setAdListener(new CaramelAdListener() {
+                  @Override
+                  public void sdkReady() {
+                      Log.d("SDK READY","sdk is ready, wait while ad is load to cache and Caramel button is enable");
+                      //cache ads after CaramelSDK is ready
+                      CaramelAds.cache(MainActivity.this);
+                  }
 
+                  @Override
+                  public void sdkFailed() {
+                      Log.d("SDK FAILED","sdk is failed");
+                  }
+
+                  @Override
+                  public void adLoaded() {
+                      Log.d("AD LOADED","ad is loaded and you can push the Caramel button");
+                  }
+
+                  @Override
+                  public void adOpened() {
+                      Log.d("AD OPENED","ad is opened");
+                  }
+
+                  @Override
+                  public void adClicked() {
+                      Log.d("AD CLICKED","clicked on ad");
+                  }
+
+                  @Override
+                  public void adClosed() {
+                      Log.d("AD CLOSED","ad is closed");
+                  }
+
+                  @Override
+                  public void adFailed() {
+                      Log.d("AD FAILED","ad is failed");
+                  }
+              });
+
+            MyButton.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View view) {
+                      // показ caramel ads если загрузка прошла успешно
+                      if(CaramelAds.isLoaded()) {
+                          CaramelAds.show();
+                       }
+                      else{
+                          Log.d("WAIT","wait while ad is load to cache and Caramel button is enable");
+                      }
+                  }
+            });  
+          }
+          ...
 ### Показ рекламы:
 
 Внимание:
