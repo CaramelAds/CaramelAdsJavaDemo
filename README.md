@@ -160,7 +160,7 @@ You can download an example and review the functionality by looking at the comme
                   @Override
                   public void sdkReady() {
                       Log.d("SDK READY","sdk is ready, wait while ad is load to cache and Caramel button is enable");
-                      //cache ads after CaramelSDK is ready
+                      //кэширование CaramelSDK произошло
                       CaramelAds.cache(MainActivity.this);
                   }
 
