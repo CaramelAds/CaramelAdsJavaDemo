@@ -35,7 +35,8 @@
               implementation('com.caramelads:sdk:10.10.4.0')
               ...
             }
-3. Example:    
+3. Example:
+
           ...
           protected void onCreate(Bundle savedInstanceState) {
               super.onCreate(savedInstanceState);
@@ -96,7 +97,8 @@
                   }
             });  
           }
-          ...
+          
+---
 
 ### Scenarios of ads showing
 Attention:
@@ -110,6 +112,8 @@ Application example:
 You can download an example and review the functionality by looking at the comments in the code.
 
 ### Thank you for use our product!
+
+---
 
 ## RUS
 ### Как использовать:
@@ -142,7 +146,8 @@ You can download an example and review the functionality by looking at the comme
             implementation('com.caramelads:sdk:10.10.4.0')
             ...
           }
-3. Пример использования:    
+3. Пример использования:
+
           ...
           protected void onCreate(Bundle savedInstanceState) {
               super.onCreate(savedInstanceState);
@@ -203,7 +208,9 @@ You can download an example and review the functionality by looking at the comme
                   }
             });  
           }
-          ...
+
+---
+          
 ### Показ рекламы:
 
 Внимание:
