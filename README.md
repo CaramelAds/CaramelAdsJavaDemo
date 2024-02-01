@@ -1,4 +1,4 @@
-<h1 align="center">Caramel 10.10.1.0</h1>
+<h1 align="center">Caramel 10.10.6.1</h1>
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=E67E22&multiline=true&width=435&lines=Caramel+AD+for+Java+Android)](https://git.io/typing-svg)
 
