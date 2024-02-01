@@ -32,5 +32,5 @@ dependencies {
     //noinspection GradleCompatible
     implementation 'androidx.appcompat:appcompat:1.6.1'
     //Caramel
-    implementation 'com.caramelads:sdk:10.10.6.0'
+    implementation 'com.caramelads:sdk:10.10.6.1'
 }
